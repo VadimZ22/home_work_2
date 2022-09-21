@@ -1,21 +1,24 @@
-﻿
-
-Console.Clear();
+﻿Console.Clear();
 Console.WriteLine("Введите любое число");
-string number = (Console.ReadLine());
+int number = int.Parse((Console.ReadLine()));
 
-int len =  number.Length;
-if (len < 3)
-    Console.WriteLine("В числе нет третьей цифры нет!");
+int bit = 0;
 
-else
+for (int x = number; x >= 1; bit++) //проверка разрядности числа с отсечением нулей в старших разрядах
 {
-    char thirdDigit = number[2];
-    Console.WriteLine(thirdDigit);
+    x = x / 10;
 }
 
 
+if (bit < 3)
+    Console.WriteLine("В числе нет третьей цифры нет!");
+else
+{
+    int thirdDigit = (number % (int)Math.Pow(10, (bit-2)) - (number % (int)Math.Pow(10, (bit-3)))) 
+                    / (int)Math.Pow(10, (bit-3));
 
+    Console.WriteLine(thirdDigit);
+}
 
 
 
