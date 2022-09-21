@@ -2,6 +2,7 @@
 Console.WriteLine("Введите любое число");
 string number = (Console.ReadLine());
 
+
 List<char> list = new List<char>(number);   //Создаем список, копируем в него строку
 
 int count = 0;
